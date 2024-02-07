@@ -4,11 +4,23 @@ import data from "../data";
 export const Context = createContext();
 
 function ContextProvider({ children }) {
-  const [allData, setAllData] = useState(data);
-  const [lang, setLang] = useState(localStorage.getItem("language") || "en");
+  const initialLang = localStorage.getItem("language") || "en";
+  const [allData, setAllData] = useState({});
+  const [lang, setLang] = useState(initialLang);
   const initialCurrentData = allData[lang] || {};
   const [currentData, setCurrentData] = useState(initialCurrentData);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get("https://reqres.in/api/workintech").then((res) => {
+      setAllData(res.data);
+      setLoading(false);
+    });
+  }, []);
+  useEffect(() => {
+    setCurrentData(allData[lang]);
+  }, [allData]);
 
   console.log("currentData:", currentData);
   console.log("allData:", data);
@@ -46,6 +58,7 @@ function ContextProvider({ children }) {
         handleClick,
         theme,
         setAllData,
+        loading,
       }}
     >
       {children}
