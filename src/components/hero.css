@@ -1,0 +1,41 @@
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+label:before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  background: #ccc;
+  position: absolute;
+  top: 0;
+  transition: background 0.3s ease;
+}
+
+input:checked + label:before {
+  background: #2196f3;
+}
+
+label:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 0.3s ease;
+}
+
+input:checked + label:after {
+  left: 20px;
+}
