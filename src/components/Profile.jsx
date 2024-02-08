@@ -4,12 +4,12 @@ function Profile() {
   const { currentData } = useContext(Context);
 
   return (
-    <div className="flex flex-col gap-8 bg-irmaque pt-16 pb-20 dark:bg-dark">
+    <div className="flex flex-col gap-8 bg-irmaque pt-16 pb-20 dark:bg-dark max-w-full">
       <h1 className="text-center mb-5 font-inter font-medium text-4xl dark:text-white">
         {currentData.profile.title}
       </h1>
-      <div className="m-auto w-[45%] flex gap-6 ">
-        <div className="w-[50%] p-4 rounded-xl flex flex-col gap-3 bg-white shadow-[10px_10px_1px_rgba(82,_82,_82,_1),_0_0px_0px_rgba(82,_82,_82,_1)] dark:bg-card dark:text-white">
+      <div className="m-auto w-[45%] flex gap-6 flex-wrap max-w-4xl">
+        <div className=" p-4 rounded-xl flex flex-col gap-3 bg-white shadow-[10px_10px_1px_rgba(82,_82,_82,_1),_0_0px_0px_rgba(82,_82,_82,_1)] dark:bg-card dark:text-white">
           <h2 className="text-basicInfo font-play text-3xl">
             {currentData.profile.basicTitle}
           </h2>

@@ -95,7 +95,7 @@ const data = {
       lang1: "SWITCH TO ",
       lang2: "ENGLISH",
       title: "Merhaba! 👋",
-      text: "Ben Hakan.Full Stack Web Developer'ım.Frontend alanında kendimi geliştiriyorum.Bilgilerim aşağıda...",
+      text: "Ben Hakan. Full Stack Web Developer'ım. Frontend alanında kendimi geliştiriyorum. Bilgilerim aşağıda...",
       img: "./public/images/hero.png",
       img1: "./public/images/LinkedIn.svg",
       img2: "./public/images/github1.svg",

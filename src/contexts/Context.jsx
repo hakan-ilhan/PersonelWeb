@@ -5,22 +5,12 @@ export const Context = createContext();
 
 function ContextProvider({ children }) {
   const initialLang = localStorage.getItem("language") || "en";
-  const [allData, setAllData] = useState({});
+  const [allData, setAllData] = useState(data);
   const [lang, setLang] = useState(initialLang);
   const initialCurrentData = allData[lang] || {};
   const [currentData, setCurrentData] = useState(initialCurrentData);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || false);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get("https://reqres.in/api/workintech").then((res) => {
-      setAllData(res.data);
-      setLoading(false);
-    });
-  }, []);
-  useEffect(() => {
-    setCurrentData(allData[lang]);
-  }, [allData]);
 
   console.log("currentData:", currentData);
   console.log("allData:", data);
@@ -33,16 +23,27 @@ function ContextProvider({ children }) {
     setCurrentData(allData[lang]);
   }, [lang]);
 
+  useEffect(() => {
+    axios.post("https://reqres.in/api/hakan", allData[lang]).then(() => {
+      console.log("res:", res, lang);
+    });
+  }, [lang]);
+
   const handleClick = () => {
     setTheme(!theme);
     console.log("state:", theme);
   };
 
   useEffect(() => {
+    const switchToggleElement = document.querySelector("#switch-toggle");
     if (theme) {
       document.documentElement.classList.add("dark");
+      switchToggleElement.classList.remove("bg-yellow-500", "-translate-x-2");
+      switchToggleElement.classList.add("bg-gray-700", "translate-x-full");
     } else {
       document.documentElement.classList.remove("dark");
+      switchToggleElement.classList.add("bg-yellow-500", "-translate-x-2");
+      switchToggleElement.classList.remove("bg-gray-700", "translate-x-full");
     }
     localStorage.setItem("theme", theme);
   }, [theme]);

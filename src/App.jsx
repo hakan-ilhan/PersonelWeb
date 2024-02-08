@@ -9,9 +9,6 @@ import { Context } from "./contexts/Context";
 
 // https://reqres.in/api/workintech
 function App() {
-  const { loading, currentData } = useContext(Context);
-
-  if (!currentData || loading) return <p>Loading...</p>;
   return (
     <div className="App">
       <Hero />
