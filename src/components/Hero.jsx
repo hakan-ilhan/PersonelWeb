@@ -75,7 +75,7 @@ function Hero() {
         </div>
       </div>
       <div className="flex justify-between  m-auto mt-2 max-w-7xl flex-wrap ">
-        <div className=" flex flex-col gap-6 flex-wrap max-w-[650px] sm:w-[90%] ">
+        <div className=" flex flex-col gap-6 flex-wrap max-w-[650px] sm:w-[90%] sm:m-auto">
           <h1 className="text-2rem font-inter font-normal">
             {currentData.hero.title}
           </h1>
@@ -115,7 +115,10 @@ function Hero() {
             </p>
           </div>
         </div>
-        <img className="object-contain sm:mt-6" src={currentData.hero.img} />
+        <img
+          className="object-contain sm:mt-6 sm:m-auto"
+          src={currentData.hero.img}
+        />
       </div>
     </div>
   );

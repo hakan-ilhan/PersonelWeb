@@ -10,7 +10,7 @@ import { Context } from "./contexts/Context";
 // https://reqres.in/api/workintech
 function App() {
   return (
-    <div className="App">
+    <div className="sm:flex sm:flex-col ">
       <Hero />
       <Skills />
       <Profile />

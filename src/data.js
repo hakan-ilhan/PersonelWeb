@@ -6,7 +6,7 @@ const data = {
       lightMode: "LİGHT MODE",
       darkMode: "DARK MODE",
       lang1: "TÜRKÇE",
-      lang2: "'YEGEÇ",
+      lang2: "'YE GEÇ",
       title: "Hi! 👋",
       text: "I’m Hakan. I’m a full-stack developer. I can craft solid and scalable frontend products. Let’s meet!",
       img: "./public/images/hero.png",
